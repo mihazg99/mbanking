@@ -8,6 +8,7 @@ class RegisterController extends GetxController {
   TextEditingController lastnameController = TextEditingController();
   TextEditingController pinController = TextEditingController();
 
+  var firstname,lastname,pin;
   var validate = true.obs;
 
   PageController pageController = PageController(initialPage: 0);
@@ -18,13 +19,12 @@ class RegisterController extends GetxController {
       validate.value = false;
     }else{
       validate.value = true;
-      Get.offAll(()=>Home());
+      pin = pinController.text;
+      Get.to(()=>Home());
     }
   }
 
   void procced(){
-    var firstname;
-    var lastname;
 
     if(index.value == 0 && formKey.currentState!.validate()){
       firstname = firstnameController.text;

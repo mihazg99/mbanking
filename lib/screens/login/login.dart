@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:mbanking/controllers/login_controller.dart';
+import 'package:mbanking/controllers/register_controller.dart';
 import 'package:mbanking/core/dialog_button.dart';
 import 'package:mbanking/core/primary_button.dart';
 
@@ -9,9 +10,7 @@ class Login extends StatelessWidget {
   Login({Key? key}) : super(key: key);
 
   final controller = Get.put(LoginController());
-
-  var ime = 'Mihael';
-  var prezime = 'Ivičić';
+  final controllerReg = Get.find<RegisterController>();
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +66,7 @@ class Login extends StatelessWidget {
               height: 10,
             ),
             Text(
-              ime + ' ' + prezime,
+              controllerReg.firstname + ' ' + controllerReg.lastname,
               textAlign: TextAlign.left,
               style: const TextStyle(
                   color: Color.fromRGBO(0, 0, 0, 1),
@@ -101,7 +100,7 @@ class Login extends StatelessWidget {
                         decoration: InputDecoration(
                             errorText: controller.validate.value
                                 ? null
-                                : 'PIN mora imati najmanje 4 znamenke'),
+                                : 'Netočan PIN'),
                         controller: controller.pinController,
                         keyboardType: TextInputType.number,
                         obscureText: true,
