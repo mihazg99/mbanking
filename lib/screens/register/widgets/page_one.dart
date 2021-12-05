@@ -43,6 +43,9 @@ class PageOne extends StatelessWidget {
                 if (value.length >30) {
                   return 'Maksimalno 30 znakova';
                 }
+                if(!(controller.validCharacters.hasMatch(value))){
+                  return 'Nedozvoljeni znakovi';
+                }
                 return null;
               },
             ),
@@ -73,6 +76,9 @@ class PageOne extends StatelessWidget {
                 }
                 if (value.length >30) {
                   return 'Maksimalno 30 znakova';
+                }
+                if(!(controller.validCharacters.hasMatch(value))){
+                  return 'Nedozvoljeni znakovi';
                 }
                 return null;
               },

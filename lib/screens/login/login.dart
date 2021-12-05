@@ -66,7 +66,7 @@ class Login extends StatelessWidget {
               height: 10,
             ),
             Text(
-              controllerReg.firstname + ' ' + controllerReg.lastname,
+              controllerReg.firstname! + ' ' + controllerReg.lastname!,
               textAlign: TextAlign.left,
               style: const TextStyle(
                   color: Color.fromRGBO(0, 0, 0, 1),
